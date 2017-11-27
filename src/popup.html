@@ -1,0 +1,97 @@
+<html>
+    <head>
+      <script src="../extlib/jquery-3.2.1.min.js"></script>
+      <script src="../extlib/iziModal.min.js" type="text/javascript"></script>
+      <script src="../extlib/iziToast.min.js" type="text/javascript"></script>
+
+      <script src="../extlib/jszip.min.js"></script>
+      <script src="../extlib/pptxgen.js"></script>
+      
+      <script src="lib/chrome_api_client.js"></script>
+      <script src="lib/collabary_api_client.js"></script>
+      <script src="lib/instagram_api_client.js"></script>
+      <script src="lib/pptx.js"></script>
+      <script src="popup.js"></script>
+      <link rel="stylesheet" href="popup.css">
+
+      <link rel="stylesheet" href="../extlib/iziModal.min.css">
+      <link rel="stylesheet" href="../extlib/iziToast.min.css">
+      
+
+    </head>
+
+    <body>
+
+        <div class="container hidden">
+
+            <div class="header box">
+                Create Creator Proposal
+            </div>
+
+            <div class="ppt-template box">
+                <div class="first-row">
+                    <div>
+                        <div class="change-me img-a" id="img-a">
+                            <span>Change me</span>
+                            <img class="hidden" src=""/>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="change-me img-b" id="img-b">
+                            <span>Change me</span>
+                            <img class="hidden" src=""/>
+                        </div>
+                        <div class="change-me img-c" id="img-c">
+                            <span>Change me</span>
+                            <img class="hidden" src=""/>
+                        </div>
+                    </div>
+                    <div class="profile-container">
+                        <div class="profile-name"></div>
+                        <div class="profile-details">
+                                <div class="instagram-channel-name"></div>
+                                <div class="location"></div>
+                                <div class="age"></div>
+                                <div class="instagram-followers"></div>
+                                <div class="instagram-engagement"></div>
+                                <div class="channels"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="second-row">
+                    <div class="collabary-logo"><img src="collabary_logo_dark.svg" /></div>
+                    <div class="change-me img-d" id="img-d">
+                        <span>Change me</span>
+                        <img class="hidden" src=""/>
+                    </div>
+                    <div class="change-me img-e" id="img-e">
+                        <span>Change me</span>
+                        <img class="hidden" src=""/>
+                    </div>
+                    <div class="change-me img-f" id="img-f">
+                        <span>Change me</span>
+                        <img class="hidden" src=""/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-bar">
+                <a class="action-button no-margin" href="#" id="btn-generate-ppt">
+                    <div class="action-button-inner">Create</div>
+                </a>
+            </div>
+
+                    
+            <!-- Modal HTML embedded directly into document -->
+            <div id="modal" class="modal">
+                <div id="ig-img-container">
+                </div>
+            </div>
+
+            
+    
+        </div>
+
+    </body>
+</html>

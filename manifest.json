@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+  "name": "Collabary",
+  "version": "0.1",
+
+  "background": {
+    "scripts": ["src/background.js"]
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": ["src/content.js"]
+    }
+  ],
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "src/popup.html"
+  },
+
+  "permissions": [
+    "downloads", "cookies", "tabs",  "<all_urls>"
+  ]
+
+}
