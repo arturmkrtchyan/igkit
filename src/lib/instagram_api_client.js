@@ -25,7 +25,6 @@ class InstagramApiClient {
                 running = false;
             }
         }
-        console.log(this.pictures);
         return this.pictures;
     }
     

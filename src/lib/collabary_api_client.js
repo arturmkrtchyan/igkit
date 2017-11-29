@@ -37,7 +37,6 @@ class CollabaryApiClient {
 
     static extractInstagramEngagement(profile) {
         const metrics = this.extractInstagramMetrics(profile);
-        console.log(metrics);
         const engagement = metrics.find((metric) => {
             return metric.name == 'engagement';
         });

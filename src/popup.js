@@ -1,4 +1,5 @@
 $(function() {
+    console.log('Initializing App.');
     const instagramApi = new InstagramApiClient();
     const context = new Context();
     const app = new App(context);
@@ -38,10 +39,12 @@ class App {
 
     render() {
         var app = this;
+        console.log('Check if the page is collabary creator profile.');
         this.isCollabaryProfilePage().then((result) => {
             
              if(result) {
                  $('div.container').removeClass('hidden');
+                 console.log('Get Collabary creator profile.');
                  app.getCollabaryProfile().then(profile => {
                      console.log('Collabary Profile: ' + JSON.stringify(profile));
                      TemplateComponent.render(this.context, profile);
@@ -80,6 +83,7 @@ class App {
     createPpt() {
         const context = this.context;
         const profile = context.getAttribute('profile');
+
         Promise.all([
             ChromeApiClient.download(context.getAttribute('img-a'), ChromeApiClient.randomFileName('jpg')),
             ChromeApiClient.download(context.getAttribute('img-b'), ChromeApiClient.randomFileName('jpg')),
@@ -106,8 +110,8 @@ class App {
                 });
             }
             generatePpt().then(result => {
-                console.log(result);
             });
+            
         });
     }
 
@@ -155,7 +159,6 @@ class ModalComponent {
         });
         options.triggerElement.click((event) => {
             event.preventDefault();
-            console.log(event);
             context.addAttribute('activedTemplateElement', event.currentTarget);
             $("#modal").iziModal('resetContent');
             $("#modal").iziModal('open');
@@ -212,6 +215,7 @@ class ProfileComponent {
 
 class TemplateComponent {
     static render(context, profile) {
+        console.log('Rendering template.');
         ProfileComponent.render(profile);
         ModalComponent.setup(context, {
             triggerElement: $('.change-me'),
@@ -226,7 +230,8 @@ class TemplateComponent {
 
     static onModalOpen(context) {
         const instagramUserName = CollabaryApiClient.extractInstagramUserName(context.getAttribute('profile'));
-        context.getAttribute('instagramApi').getPictures('https://www.instagram.com/' + instagramUserName, 10).then((images) => {
+        console.log('Get post pictures from instagram.');
+        context.getAttribute('instagramApi').getPictures('https://www.instagram.com/' + instagramUserName, 100).then((images) => {
             SpinnerComponent.removeLoader($('#ig-img-container'));
             images.forEach((image) => {
                 $('#ig-img-container').append(`<img src="${image.thumbnail_src}">`);
